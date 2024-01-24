@@ -26,12 +26,14 @@ fn main() {
     let presentation: Vec<Slide> = contents
         .trim()
         .split("\n\n")
+        .filter(|line| !line.starts_with("#"))
         .map(|line| {
-            if line.starts_with("!") {
-                let path = PathBuf::from(line.strip_prefix("!").unwrap());
+            if let Some(line) = line.strip_prefix("@") {
+                let path = PathBuf::from(line);
                 let absolute_path = fs::canonicalize(&path).unwrap();
                 Slide::Image(format!("file://{}", absolute_path.to_str().unwrap()))
             } else {
+                let line = line.strip_prefix("\\").unwrap_or(line);
                 Slide::Paragraph(line.to_string())
             }
         })

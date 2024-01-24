@@ -1,3 +1,5 @@
+# this is comment duh
+
 Hello World
 
 This is a presentation using the Takahashi method
@@ -11,7 +13,7 @@ So he first used the method and found it helpful
 
 There is this beautiful tool called sent
 
-!images/sent.png
+@images/sent.png
 
 I really like it, but there is not equivalent on macOS.
 
