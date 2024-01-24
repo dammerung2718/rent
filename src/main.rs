@@ -2,7 +2,8 @@ use eframe::{
     egui::{self, Key, Margin, TextStyle},
     epaint::{FontFamily, FontId},
 };
-use std::{env, fs, path::PathBuf, process};
+use resolve_path::PathResolveExt;
+use std::{env, fs, path, process};
 
 // presentation is a bunch of slides
 enum Slide {
@@ -29,9 +30,9 @@ fn main() {
         .filter(|line| !line.starts_with("#"))
         .map(|line| {
             if let Some(line) = line.strip_prefix("@") {
-                let path = PathBuf::from(line);
-                let absolute_path = fs::canonicalize(&path).unwrap();
-                Slide::Image(format!("file://{}", absolute_path.to_str().unwrap()))
+                let path = line.resolve();
+                let path = path.to_str().unwrap();
+                Slide::Image(format!("file://{}", path))
             } else {
                 let line = line.strip_prefix("\\").unwrap_or(line);
                 Slide::Paragraph(line.to_string())

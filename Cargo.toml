@@ -9,3 +9,4 @@ edition = "2021"
 eframe = "0.25.0"
 egui_extras = { version = "0.25.0", features = ["all_loaders"] }
 image = { version = "0.24", features = ["jpeg", "png"] }
+resolve-path = "0.1.0"
