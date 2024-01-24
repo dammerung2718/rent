@@ -1,0 +1,20 @@
+Hello World
+
+This is a presentation using the Takahashi method
+
+It is a technique of deploying extremely
+simple and distilled visual slides for presentations.
+
+Once Takahashi, a programmer, had to give a short presentation at a conference (RubyConf)
+
+So he first used the method and found it helpful
+
+There is this beautiful tool called sent
+
+!images/sent.png
+
+I really like it, but there is not equivalent on macOS.
+
+So I built one...
+
+It is named rent (lmao)
